@@ -11,7 +11,7 @@ export class ApiService {
     
     constructor(private http: HttpClient) { }
 
-    getCards(setName: string | undefined, cardBlock: string): Observable<any> {
+    getSets(setName: string | undefined, cardBlock: string): Observable<any> {
         console.log(this.apiUrl + 'sets?name=' + setName + "|" + cardBlock)
         return this.http.get<any>(this.apiUrl + 'sets?name=' + setName + "|" + cardBlock);
     }

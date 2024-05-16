@@ -22,7 +22,7 @@ export class SearchComponent {
     }
     else{
       this.apiResult = "loading";
-      this.ApiService.getCards(this.setToSearch, this.blockToSearch).subscribe(data => {
+      this.ApiService.getSets(this.setToSearch, this.blockToSearch).subscribe(data => {
         this.data = data;
         this.apiResult = "done";
         console.log(data);
