@@ -1,0 +1,11 @@
+.app{
+    font-family: Comic Sans MS;
+    min-height: 100vh;
+    height: auto;
+    background-image: url("../assets/background.webp");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size:auto;
+    background-position:center;
+    color: #c2c2c2;
+}

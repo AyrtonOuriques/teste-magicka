@@ -1,0 +1,33 @@
+<form *ngIf="apiResult == 'none'" class="row searchform">
+  <h5 class="col-md-12">Procurar Sets</h5>
+  <div class="form-group col-sm-5">
+    <input [(ngModel)]="setToSearch" type="text" class="form-control" name="setSearch" placeholder="Nome">
+  </div>
+  <div class="col-sm-5" style="width: 140px;">
+		<div ngbDropdown class="d-inline-block">
+			<button type="button" class="btn btn-outline-primary" ngbDropdownToggle>
+				{{blockToSearch ? blockToSearch : "Bloco"}}
+			</button>
+			<div ngbDropdownMenu>
+				  <button ngbDropdownItem (click)="blockToSearch = 'Amonkhet'; error = 0;">Amonkhet</button>
+				  <button ngbDropdownItem (click)="blockToSearch = 'Ixalan'; error = 0;">Ixalan</button>
+				  <button ngbDropdownItem (click)="blockToSearch = 'Zendikar'; error = 0;">Zendikar</button>
+          <button ngbDropdownItem (click)="blockToSearch = 'Ravnica'; error = 0;">Ravnica</button>
+          <button ngbDropdownItem (click)="blockToSearch = 'Onslaught'; error = 0;">Onslaught</button>
+			</div>
+    </div>
+	</div>
+  <button class="btn btn-primary col-sm-2" type="button" (click)="searchCards()">Buscar</button>
+</form>
+<nav class="navbar" style="height: 150px;">
+  <img  class="" [src]= "'../assets/logo.png'" style="max-width: 20%; height: auto;padding-left: 5px;">
+  <h1 class="h1" [ngStyle]="{'left':boostersOpened === 'no' ? '47%' : '40%' }" *ngIf="boostersOpened != 'loading' && boostersOpened">{{boostersOpened == 'no' ? 'Sets' : 'Cartas Encontradas'}}</h1>
+</nav>
+<div *ngIf="error" class="alert alert-danger col-md-12">
+   Por favor, selecione um bloco.
+</div>
+<div *ngIf="apiResult == 'loading'" class="d-flex center">
+    <div class="spinner-border" role="status">
+    </div>
+</div>
+<app-display *ngIf="apiResult == 'done'" [data]="data" (boosterOutput)="changeBooster($event)"></app-display>
