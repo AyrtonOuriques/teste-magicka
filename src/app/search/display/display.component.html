@@ -23,7 +23,7 @@
                 <img *ngIf="card.imageUrl" class="card-img-top" [src]= "card.imageUrl" alt="Card image cap">
                 <div class="card-body row" style="text-align: left;">
                   <h5 class="card-title col-md-9">{{card.name}}</h5>
-                  <img class="col-md-3" [src]= "getEnvironmentColor(card.colorIdentity)" style="max-width: 20%; max-height: 30px; margin-left: 12px;" >
+                  <img class="col-md-3" [src]= "getEnvironmentColor(card.colorIdentity)" style="max-width: 18%; max-height: 24px; margin-left: 12px;" >
                   <p class="card-text col-md-12" >Custo Mana: {{card.manaCost}}</p>
                   <p class="card-text col-md-12">{{card.text}}</p>  
                 </div>
